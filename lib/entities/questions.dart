@@ -14,11 +14,11 @@ class Question {
     return answer;
   }
 
-  List<String> getChoices() {
-    return multipleChoices;
-  }
-
   int getChoicesNumber() {
     return multipleChoices.length;
+  }
+
+  List<String> getChoices() {
+    return multipleChoices;
   }
 }

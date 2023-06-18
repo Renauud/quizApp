@@ -3,12 +3,12 @@ import 'package:quizapp/entities/quiz.dart';
 import 'package:quizapp/routes/route.dart';
 
 class QuizRow extends StatelessWidget {
-  final Quiz quiz;
-
   const QuizRow({
     Key? key,
     required this.quiz,
   }) : super(key: key);
+
+  final Quiz quiz;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class QuizRow extends StatelessWidget {
         },
         child: Container(
           decoration: BoxDecoration(
-            color: Colors.black,
+            color: const Color.fromRGBO(204, 204, 255, 1),
             borderRadius: BorderRadius.circular(5),
           ),
           padding: const EdgeInsets.symmetric(

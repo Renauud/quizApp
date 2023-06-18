@@ -30,8 +30,10 @@ class ListQuizState extends State<ListQuiz> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFE6DADA),
       appBar: AppBar(
         title: const Text("Application Quiz"),
+        backgroundColor: const Color(0xFFF2BFBF),
       ),
       body: SingleChildScrollView(
         child: Center(
