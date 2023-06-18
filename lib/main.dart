@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quizapp/pages/home/home.dart';
 import 'package:quizapp/pages/quiz/quiz.dart';
-import 'package:quizapp/pages/result/result.dart';
 import 'package:quizapp/routes/route.dart';
 
 void main() {
@@ -26,7 +25,6 @@ class MyApp extends StatelessWidget {
         routes: {
           Routes.homePage: (context) => const ListQuiz(),
           Routes.quizPage: (context) => const QuizQuestions(),
-          Routes.resultPage: (context) => const ResultPage(),
         });
   }
 }

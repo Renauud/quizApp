@@ -41,15 +41,30 @@ class QuizQuestionsState extends State<QuizQuestions> {
             if (quiz.questionNumber == quiz.getQuizLength()) {
               return Column(
                 children: [
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
+                  Column(
                     children: [
-                      ElevatedButton(
-                        onPressed: () {
-                          quiz.reset();
-                          Navigator.pop(context);
-                        },
-                        child: const Text("Retourner à l'accueil."),
+                      if (quiz.score == quiz.getQuizLength())
+                        const Text(
+                            "Parfait ! Vous n'avez fais aucune erreur !"),
+                      if (quiz.score == quiz.getQuizLength())
+                        Image.asset('assets/images/kitty.jpg'),
+                      Text("Votre score : ${quiz.score}"),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(
+                          vertical: 15,
+                        ),
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {
+                              quiz.reset();
+                              Navigator.pop(context);
+                            },
+                            child: const Text("Retourner à l'accueil."),
+                          ),
+                        ],
                       ),
                     ],
                   ),
@@ -72,17 +87,17 @@ class QuizQuestionsState extends State<QuizQuestions> {
                         Flexible(
                           child: TextField(
                             controller: controller,
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               labelText: "Écriver votre réponse ici !",
                             ),
                           ),
                         ),
                         Flexible(
                           child: IconButton(
-                              icon: const Icon(Icons.arrow_drop_down),
+                              icon: const Icon(Icons.check_box),
                               onPressed: () {
                                 final answer =
-                                    controller.text.toUpperCase().trim();
+                                    controller.text.toLowerCase().trim();
                                 if (answer !=
                                         quiz
                                             .getQuestions()[quiz.questionNumber]
@@ -92,7 +107,7 @@ class QuizQuestionsState extends State<QuizQuestions> {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(
-                                          "La réponse est ${quiz.getQuestions()[quiz.questionNumber]}"),
+                                          "La réponse est ${quiz.getQuestions()[quiz.questionNumber].getAnswer()}."),
                                     ),
                                   );
                                 } else {
