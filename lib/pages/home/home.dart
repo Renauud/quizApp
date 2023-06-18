@@ -6,5 +6,5 @@ class ListQuiz extends StatefulWidget {
   });
 
   @override
-  State<ListQuiz> createState() {} => ListQuizState();
+  State<ListQuiz> createState() {} => ListQquizState();
 }
